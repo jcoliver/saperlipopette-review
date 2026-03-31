@@ -12,14 +12,14 @@ output:
 *Please check off boxes as applicable, and elaborate in comments below.  Your review is not limited to these topics, as described in the reviewer guide*
 
 - **Briefly describe any working relationship you have (had) with the package authors.**
-- [ ] As the reviewer I confirm that there are no [conflicts of interest](https://devguide.ropensci.org/policies.html#coi) for me to review this work (if you are unsure whether you are in conflict, please speak to your editor _before_ starting your review).
+- [x] As the reviewer I confirm that there are no [conflicts of interest](https://devguide.ropensci.org/policies.html#coi) for me to review this work (if you are unsure whether you are in conflict, please speak to your editor _before_ starting your review).
 
 #### Documentation
 
 The package includes all the following forms of documentation:
 
 - [ ] **A statement of need:** clearly stating problems the software is designed to solve and its target audience in README
-- [ ] **Installation instructions:** for the development version of package and any non-standard dependencies in README
+- [x] **Installation instructions:** for the development version of package and any non-standard dependencies in README
 - [ ] **Vignette(s):** demonstrating major functionality that runs successfully locally
 - [ ] **Function Documentation:** for all exported functions
 - [ ] **Examples:** (that run successfully locally) for all exported functions
@@ -27,7 +27,7 @@ The package includes all the following forms of documentation:
 
 #### Functionality
 
-- [ ] **Installation:** Installation succeeds as documented.
+- [x] **Installation:** Installation succeeds as documented.
 - [ ] **Functionality:** Any functional claims of the software have been confirmed.
 - [ ] **Performance:** Any performance claims of the software have been confirmed.
 - [ ] **Automated tests:** Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.
@@ -40,3 +40,53 @@ Estimated hours spent reviewing:
 ---
 
 ### Review Comments
+
+Provides a nice teaching tool to create common challenging situations in Git 
+and how to resolve those challenges.
+
+Documentation
+
+File organization
+
+Files are not named the same as their functions. Although it is fairly 
+intuitive, it still adds complexity. Why not pre-append filenames as with 
+functions? e.g. blame.R -> exo_blame.R. This only applies to those files with 
+a single function; e.g. the approach is not applicable to files such as 
+roxygen2.R.
+
+All functions that start a new R (and RStudio) session should explicitly say 
+this behavior (starting a new R session) is expected behavior (probably best to 
+be done in **Details** sections of function documentation).
+
+If I try creating all exercises after running any of the other, individual 
+exercise functions (`exo_*`), it creates an error (appropriately so, perhaps). 
+For example, I first ran `exo_one_small_change(parent_path)` as in the example, 
+then ran `create_all_exercises(parent_path)`, and received the following error:
+
+```
+Error in `map()`:
+ℹ In index: 3.
+Caused by error in `exo_one_small_change()`:
+! Can't create /tmp/Rtmp2PLQsE/file7bd11c387465/one-small-change as it already 
+exists.
+```
+
+Consider using `return()`. This is probably just a stylistic difference, but it 
+does make it a little more explicit.
+
+Specific functions/files
+
+create_all_exercises. I don't know when one would use this function. A use case 
+(not just an example) would be helpful.
+
+roxygen2.R. Lacks function documentation.
+
+utils-fs.R. Lacks function documentation.
+
+utils-git.R. Lacks function documentation.
+
+utils-potools.R. Lacks function documentation.
+
+utils-usethis.R. Lacks function documentation.
+
+zzz.R. Lacks function documentation. Rename to something informative.
