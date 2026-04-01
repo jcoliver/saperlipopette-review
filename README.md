@@ -22,9 +22,9 @@ This repo contains files associated with the **rOpenSci** review of
 
 <br>
 
-### see the review report [here:](https://jcoliver.github.io/saperlipopette-review/index.nb.html)
+### see the review report [here](https://jcoliver.github.io/saperlipopette-review/index.nb.html)
 
-or view the submitted review to rOpenSci [here:]()
+or view the submitted review to rOpenSci [here](https://github.com/ropensci/software-review/issues/754#issuecomment-4172245979)
 
 <br>
 
