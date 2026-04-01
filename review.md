@@ -33,7 +33,7 @@ The package includes all the following forms of documentation:
 - [x] **Automated tests:** Unit tests cover essential functions of the package and a reasonable range of inputs and conditions. All tests pass on the local machine.
 - [ ] **Packaging guidelines**: The package conforms to the rOpenSci packaging guidelines.
 
-Estimated hours spent reviewing: 
+Estimated hours spent reviewing: 4
 
 - [x] Should the author(s) deem it appropriate, I agree to be acknowledged as a package reviewer ("rev" role) in the package DESCRIPTION file.
 
