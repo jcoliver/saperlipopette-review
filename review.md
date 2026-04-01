@@ -71,7 +71,7 @@ coverage of package functions, illustrating realistic use cases and how
 functions are intended to interact.
 
 Maybe take a look at [https://teachdatascience.com/datapackage/](https://teachdatascience.com/datapackage/) 
-as an example of a more descriptive vignette on the use of the package in 
+as an example of a more descriptive vignette on the use of a package in 
 teaching scenarios.
 
 ##### Smaller documentation suggestions
@@ -96,7 +96,7 @@ The remaining text in this section:
 > In practice here the user would change a file, then Git add it, then run `git commit --amend --no-edit`.
 The user would examine the [Git history](https://git-scm.com/book/en/v2/Git-Basics-Viewing-the-Commit-History) before and after this.
 
-Could use additional details, such as which RStudio instance things should be 
+could use additional details, such as which RStudio instance things should be 
 happening (because a user will have at least two R/RStudio sessions running at 
 this point), how to add a change to the registry (will the RStudio Git 
 interface work or does it need to be done via CLI?), and where the commit 
@@ -105,16 +105,16 @@ command needs to be run (some users may try to run it in a R console). A nod to
 referencing an external resource would be a good way to end this section.
 
 Related, all functions that start a new R (and RStudio) session should 
-explicitly say this behavior (starting a new R session) is expected behavior 
-(probably best to be done in **Details** sections of function documentation). 
-Yes, I recognize this would be repetitive, but I think it is useful for new 
-users.
+explicitly say this behavior (starting a new R session) is expected (probably 
+best to be done in **Details** sections of function documentation). Yes, I 
+recognize this would be repetitive, but I think it is useful for new users.
 
 **Specific functions/files**
 
 + create_all_exercises. I don't know when one would use this function. A use case 
 (not just an example) would be helpful.
-+ The following files include functions that lack documentation for use:
++ The following files include functions that lack documentation for use (even 
+though most are for internal use only):
   + roxygen2.R
   + utils-fs.R
   + utils-git.R
@@ -149,6 +149,7 @@ parent_path <- withr::local_tempdir()
 path <- exo_one_small_change(parent_path)
 path <- create_all_exercises(parent_path)
 ```
+
 I received the following error:
 
 ```
@@ -167,7 +168,7 @@ message. If one is feeling extremely adventurous, another `setdiff()` in
 `create_all_exercises()` with the output of something like 
 `list.dir(parent_path)` (and some fun path parsing), could further reduce the 
 function names stored in `funs` that are ultimately passed to `purrr::walk()`. 
-Note I did not test this last suggestion.
+Note I was *not* adventurous enough to test this last suggestion.
 
 ##### `devtools::check()`
 
@@ -178,7 +179,7 @@ I saw a message:
 This is presumably thrown because the DESCRIPTION includes the RoxygenNote 
 specifying version 7.3.3.9000. Is current release (7.3.3) not sufficient?
 
-Also, the run of `devtools::check()` failed during installation failed when 
+Also, the run of `devtools::check()` failed during the installation step when 
 trying to install the dependency parsedate. I went ahead and manually installed 
 parsedate, and the check proceeded without additional problems. It is entirely 
 possible I forgot to do something before running `devtools::check()`.
@@ -204,5 +205,5 @@ ignored:
 ##### `devtools::test()`
 
 40 of 42 tests passed; 2 tests (test-utils-potools.R:2:3, 
-test-utils-potools.R:13:3) skipped on Linux. Note these tests are explicitly 
-skipped on Linux.
+test-utils-potools.R:13:3) skipped on Linux. Note the two skipped tests are 
+explicitly skipped on Linux.
